@@ -1,0 +1,27 @@
+Idea candidates for G03
+
+Ideas for better group name:
+-Go Go Go
+-"with team as successful_group:"
+-smart quotes
+
+
+Arduino as Lab environment for education / DAQ
+-set up Python based application (maybe GUI maybe set of command line functions) to interface arduino for lab experiments
+-We pre-cook the lab experiments
+-Some prior ideas could be experiments / demos
+	-Plant water / humidity sensor
+	-Fruit ripeness poker
+	-proximity sensor
+-Provides ability to save data coming in from arduino.
+
+Bike rack availability monitor
+-Displays if there are available spots at a given bike rack online
+-Concerns:
+	-mechanism to detect rack is available / not
+		-visual?
+		-Contact (varies too much?)
+
+Parking Space availability monitor
+-if spaces area available, turn on light or add to sign 50' away
+-Similar to bike rack, but cars park more consistently than bikes.
