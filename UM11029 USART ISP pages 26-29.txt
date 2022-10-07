@@ -1,0 +1,6 @@
+UM11029 USART ISP pages 26-29.pdf has an example of an MCU <-> {something else} protocol.
+UM11029 USART ISP pages 36,37.pdf describes the error codes (including success).
+
+Only the first five commands are listed in the pdf:  the list goes on and on.
+
+Maybe something like this?
