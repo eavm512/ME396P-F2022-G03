@@ -72,7 +72,7 @@ def shoot(current_angle):
     '''shoot a projectile
     '''
     missile = turtle.Turtle()
-    missile.settiltangle(current_angle)
+    missile.lt(current_angle)
     missile.penup()
     
     return missile
@@ -106,6 +106,8 @@ def draw(msg, missiles, last_heading):
             
     to_remove.reverse()
     for remove_idx in to_remove:
+        missiles[remove_idx].reset()
+        missiles[remove_idx].ht() #hide the turtle
         del missiles[remove_idx]
     
     
