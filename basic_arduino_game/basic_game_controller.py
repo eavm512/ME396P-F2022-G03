@@ -75,19 +75,32 @@ def shoot(current_angle):
     missile.lt(current_angle)
     missile.penup()
     
+    #make it a laser if we're in laser mode
+    if projectile_mode == 'laser':
+        missile.speed(speed = 0) #spin laser turtle FAST
+        missile.pendown()
+        missile.pen(fillcolor = 'red', pencolor = 'red')
+        missile.ht() #hide the turtle     
+    
     return missile
 
-def draw(msg, missiles, last_heading):
+def draw(msg, missiles, last_heading, projectile_mode):
     '''
     rotate the player
     advance any missiles
     remove any missiles that have gone too far
     '''
     print(msg)    
+
     
-    if msg != 'FIRE!':
+    if msg != 'FIRE!' and msg != 'Toggle mode':
         last_heading = int(msg)
         player.settiltangle(last_heading)
+    elif 'Toggle mode' in msg:
+        if projectile_mode == 'arrow': 
+            projectile_mode = 'laser'
+        else: 
+            projectile_mode = 'arrow'
     else: #we're firing a missile!
         new_missile = shoot(last_heading)
         missiles.append(new_missile)
@@ -95,7 +108,11 @@ def draw(msg, missiles, last_heading):
     
     #advance existing missiles
     for miss in missiles:
-        miss.forward(MISSILE_SPEED)
+        if miss.pencolor() == 'red':
+            miss.forward(LASER_SPEED)
+        else:
+            miss.forward(MISSILE_SPEED)
+
     
     #remove missiles that are far away:
     #someone help me with a better way to do this!
@@ -111,23 +128,33 @@ def draw(msg, missiles, last_heading):
         del missiles[remove_idx]
     
     
-    return missiles, last_heading
+    return missiles, last_heading, projectile_mode
 
 #--------------------------------------------------
 MISSILE_DELETE = 220
 MISSILE_SPEED  = 10
+MISSILE_COLOR  = 'off'
+LASER_SPEED = 200
+LASER_TRAIL = 'red'
+TURTLE_SPEED = 1 #Faster than turtle's default. pick 0-10, 0 fastest
+
+projectile_mode = 'arrow'
+projectile_speed = MISSILE_SPEED
+projectile_color = 'off'
 
 ser =serial.Serial('COM3', 9600)
 
 player = turtle.Turtle()
 player.shape('turtle')
 player.color('green')
+player.speed(speed = TURTLE_SPEED)
 missiles = [] #a list of turtle missiles
 window = turtle.Screen()
 last_heading = 0
 
 while(True):
-    missiles, last_heading = draw(parse_msg(ser.readline()), missiles, last_heading)
+    missiles, last_heading, projectile_mode = draw(parse_msg(ser.readline()), 
+                                  missiles, last_heading, projectile_mode)
     time.sleep(.05)
     
     if len(missiles) > 5:
