@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """
+WE HAZ COPYRIGHTS.
+
+Github for observers: https://github.com/mcassoli/Serial_and_milk
+
 Python 3.7
 Created on Tue Oct 11 17:53:45 2022
 
@@ -20,6 +24,11 @@ prevent serial library in python from connecting.
 
 Make sure to update the first arguments of the serial.Serial object creators
 with the appropriate COM ports for your computer.
+
+To see what ports you have available:
+from serial.tools import list_ports
+list_ports.main()
+
 """
 
 import serial
@@ -37,23 +46,19 @@ uno = serial.Serial(UNO_PORT, 9600)
 leonardo = serial.Serial(LEONARDO_PORT, 9600)
 
 uno_buffer = []
-
 elapsed = 0
 
 while elapsed < MAX_TIME:
     elapsed += 1
     
-    #get rid of all the lines
+    #get rid of all the old lines
     uno.flushInput()
     
     #so that we can read just the latest line
     uno_msg = uno.readline()
     uno_buffer.append(bytes.decode(uno_msg))
 
-    print()    
-    print('uno message: ', uno_msg)
-    # print('decoded: ', bytes.decode(uno_msg))
-    # print('and thats a ', type(bytes.decode(uno_msg)))
+    print('\nuno message: ', uno_msg)
     
     if '0' in uno_buffer[-1]:
         print('lights on!')
@@ -70,8 +75,8 @@ uno.close()
 leonardo.close()
 
 
-# #individually turn on and off the Leonardo LED:
-# leo = serial.Serial('COM11', 9600)
+#individually turn on and off the Leonardo LED:
+# leo = serial.Serial('COM13', 9600)
 # on_message = bytes('e', 'utf-8')
 # off_message = bytes('a', 'utf-8')
 # leo.write(on_message)

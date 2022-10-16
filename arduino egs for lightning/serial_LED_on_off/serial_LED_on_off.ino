@@ -24,9 +24,12 @@ void loop() {
 
     if ((int)incomingByte > 100){
       digitalWrite(LED_PIN, HIGH);
+      digitalWrite(LED_BUILTIN, HIGH);
     }
     else{
       analogWrite(LED_PIN, LOW);
+      digitalWrite(LED_BUILTIN, LOW);
+
     }
   }
 }
