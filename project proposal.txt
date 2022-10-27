@@ -50,6 +50,14 @@ Things that probably need to happen:
 -anti theft / gps?
 -Wifi connection stuff?
 
+PROF MEETING COMMENTS:
+-spoof the signals initially and show that you can display the stuff using Python nicely. 
+-Archive the data as a stretch goal and predict when you should leave home to get a spot
+-Hardware: make a demo that kinda works for 1 slot and gets the data. Can be prototype.
+-Stretch goal: actually get this on a bike rack
+-note this may relate to things Meredith is interested in
+-repeatedly putting HTML on GitHub is probaly and OK option, but local server is an acceptable plan.
+
 
 
 Questions for Prof / TA:
