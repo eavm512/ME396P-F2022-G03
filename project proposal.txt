@@ -1,3 +1,7 @@
+Please be on time (https://utexas.zoom.us/my/mitchpryor) with your full team in attendance. Prior to the meeting please share via email a brief description responding to the outline above. Share with:
+
+mpryor@utexas.edu, pitschm1@utexas.edu, cpetlowany@utexas.edu, phwangk@utexas.edu
+
 Items for email prior to topic pitch:
   - The project's high level objective
 Our objective is to sense the presence / absence of bikes on a bike rack outside of a UT building to enable a tool to let students know if there is room before the bike all the way to the building. (The rack outside our classroom on the East side is actually a good example: it's difficult to see from a number of locations, but there are alternatives (that would necessitate a longer walk) before it.
