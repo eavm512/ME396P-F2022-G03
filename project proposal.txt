@@ -1,0 +1,47 @@
+Items for email prior to topic pitch:
+  - The project's high level objective
+Our objective is to sense the presence / absence of bikes on a bike rack outside of a UT building to enable a tool to let students know if there is room before the bike all the way to the building. (The rack outside our classroom on the East side is actually a good example: it's difficult to see from a number of locations, but there are alternatives (that would necessitate a longer walk) before it.
+  
+  
+  - The approach and packages you suspect you will utilize
+We imagine using Arduinos and ultrasonic sensors to detect if there is a bike. The ultrasonic sensors will either be attached to the bike rack, or to another bike we'll lock to one side of the rack.
+
+We'll use pyserial to have the arduinos communicate back to a raspberry pi, or similar low power computer to analyze the data. For the purposes of maximizing Python usage, the data processing we could do on either the arduinos or the pi in Python we'll do in Python, and so may use something like numpy to organize it all.
+
+We may use a WiFi library (os may be enough) to connect to the UT library and share back the data / status. We probably don't want to go down a whole web design or hosting rabbit hole, but could either just push data to GitHub, or maybe make something very simple with flask and host that HTML on GitHub.
+	-We could also do this all on the Arduino side with an ESP8266, but are concerned if that's not Python-centric enough.
+  
+  - The deliverables. What will your code do if it is successful?
+The main thing it will do is let us know if the bike rack has any number of open slots for another bike.
+
+As a stretch goal, it will present that data in increasingly friendly ways:
+		-just an every so often updating txt file on GitHub
+		-a flask based page hosted on GitHub
+		
+  
+  - Documentation of any similar/related projects you found online and/or what makes this project sufficiently unique.
+Use of sonic sensors are pretty prevalent with hobby robotics / arduinos. We imagine using the popular HC-Sr04 (as here: https://www.sparkfun.com/products/15569 though it's also available at TIW). Tutorials on the sensor are numerous
+
+Prior people have used the Sr04 sensor for non-robitics projects, like this water level sensor for a tank (https://www.instructables.com/Water-Level-Indicator-Using-Sr04-Sensor/). 
+
+Hajjaj, Sultan, Moktar, and Lee at (https://www.researchgate.net/publication/339286117_Utilizing_the_Internet_of_Things_IoT_to_Develop_a_Remotely_Monitored_Autonomous_Floodgate_for_Water_Management_and_Control) used this sensor, a Raspberry Pi, and a python script to control a mini floodgate for water management.
+
+The uniqueness of our project will be the:
+	-we'd like to view data from far away from the device
+	-we have multiple data inputs at once, which will have different statuses (for each bike slot)
+	-we may have multiple arduinos talking back to the Python computer
+	-it may be worthwhile to optimize things like power consumption
+	
+	
+	
+  - Task delegation plan. This doesn't have to be perfect, but have a plan on how each team member will contribute to the success of the project.
+Matthew: manufacturing of physical brackets to position sensors + soldering / boxing of arduino stuff.
+John: work on more advanced serial communication so things come into Python in controlled, planned order. Possibly also to optimize battery life.
+Kaya: 
+Enrique:
+
+Things that probably need to happen:
+-python analysis of data streams from multiple arduions
+-some sort of failure recovery that reconnects to arduinos after they misbehave / is willing to let an arduino go if it runs out of battery or something
+-anti theft / gps?
+-Wifi connection stuff?
