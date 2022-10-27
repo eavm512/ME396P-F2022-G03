@@ -49,3 +49,12 @@ Things that probably need to happen:
 -some sort of failure recovery that reconnects to arduinos after they misbehave / is willing to let an arduino go if it runs out of battery or something
 -anti theft / gps?
 -Wifi connection stuff?
+
+
+
+Questions for Prof / TA:
+-What percentage of this has to be not Python for us to feel bad / be concerned?
+-How many of these "on ramps" for extensions are OK to figure out as we go along?
+-How much mechanism / bracket design is too much?
+-Do we need to get official approval from UT security or someone to do this?
+-Are there historic ways teams have hosted websites that have been preferred by the class?
