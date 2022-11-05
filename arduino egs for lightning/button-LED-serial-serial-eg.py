@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 WE HAZ COPYRIGHTS.
+Any copyright arising from this code is
+jointly owned by the members of group G03
+see our github below.
 
 Github for observers: https://github.com/mcassoli/Serial_and_milk
 
@@ -35,7 +38,7 @@ import serial
 from time import sleep
 
 UNO_PORT = 'COM3'
-LEONARDO_PORT = 'COM11'
+LEONARDO_PORT = 'COM13'
 DELAY_TIME = .1 #in seconds
 
 on_message = bytes('e', 'utf-8')
