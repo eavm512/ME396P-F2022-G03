@@ -37,9 +37,9 @@ def home():
     status = update_bike_status()
     
     if status[0]:
-        return 'available \n\n' + str(status[1])
+        return '<h1> available <br><br></h1>' + str(status[1])
     else:
-        return 'NOT available \n\n' + str(status[1])
+        return '<h1> NOT available <br><br> </h1>' + str(status[1])
     
     return 'junk'
 
