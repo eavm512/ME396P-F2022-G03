@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 This file provides several examples of rack dictionaries
+
+True = Full
+False = empty
 """
 
 ex_rack_1 = {0 : True, 1: False, 2: True, 3 : True, 4 : False}
