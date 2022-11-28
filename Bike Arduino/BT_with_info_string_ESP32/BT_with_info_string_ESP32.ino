@@ -37,11 +37,11 @@ void loop() {
   distance = duration * 0.034 / 2;
   String dstring = String(distance);
 
-  String bike_status = "AVAILABLE\n";
+  String bike_status = "AVAILABLE ";
 
   if(distance < DIST_THRESH){
     digitalWrite(LEDPin, HIGH);
-    bike_status = "NOT AVAILABLE\n";
+    bike_status = "NOT AVAILABLE ";
   }else{
     digitalWrite(LEDPin, LOW);
   }
@@ -49,6 +49,7 @@ void loop() {
   Serial.print(dstring);
   Serial.println();
   bike_status += distance;
+  bike_status += '\n';
   SerialBT.print(bike_status);
 
   delay(20);
