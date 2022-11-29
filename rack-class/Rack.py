@@ -19,9 +19,9 @@ class Rack:
         for bay, state in status.items():
             
             self.bays[bay] = state
-            self.log()
-            
-            '''# If the bay does not already exist, add it and log the update
+        self.log()
+        
+        '''# If the bay does not already exist, add it and log the update
             if bay not in self.bays:
                 self.bays[bay] = state
                 self.log_bay(bay, state)
