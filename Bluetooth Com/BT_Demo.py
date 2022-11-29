@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov 15 18:37:49 2022
-
 @author: casso
 
+Bluetooth ESP handling and testing module - updated 11/27/22
+
 worekd Nov 15 with COM18
+worked Nov 27 with COM4 - it depends on your computer
 """
 
 import serial.tools.list_ports
