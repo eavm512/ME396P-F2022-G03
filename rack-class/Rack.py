@@ -37,6 +37,6 @@ class Rack:
         
         '''
         # print the change to a file
-        f = open('rack-log', 'a')
+        f = open('rack-log.txt', 'a')
         f.write('{0} {1} {2}\n'.format(bay, status, self.updated))
         f.close()
