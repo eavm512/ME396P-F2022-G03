@@ -23,15 +23,14 @@ def sanitize(rack_map_data, port_baud_list=None):
         pass
    
     def classify(ast):
-        ''' return t/f '''
-        #return the_dict
+        return {0 : True}
     
     def push_to_rack(the_dict):
         rack.update(the_dict)
         pass
     
     def port_listnener(port):
-        get_messages(port = 7)  ##### udpate port if necessary (unlikely)
+        line = get_messages(port = 7)  ##### udpate port if necessary (unlikely)
         ast = parse_line(line)
         if grammar_is_good(ast):
             the_dict = classify(ast)
