@@ -65,6 +65,11 @@
 * Contains templates used by the Flask application to generate and style HTML
 
 ### Rack.py
-* Defines the Rack class. See Standards folder and readme for more information on Rack class.
-
-			
+* Defines the Rack class.
+* Attributes
+  * name: The name of the specific bike rack, default = "unnamed"
+  * bays: Dictionary containing the status of each bay in the rack
+  * updated: The timestamp of the most recent update
+* Methods
+  * update_rack: Accepts a dictionary containing the status of each bay, storing it in bays. If any change is made, calls log
+  * log: appends a file named "rack-log.txt" with a new log entry.
