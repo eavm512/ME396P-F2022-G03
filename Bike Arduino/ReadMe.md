@@ -2,7 +2,7 @@
 
 ## How to run with the emulation
 
-#How to run project with live Bluetooth Data from ESP32
+# How to run project with live Bluetooth Data from ESP32
 * Requirements for Bluetooth Mode:
 	* User must first pair with the ESP32. If using arduino sketches from this repo, the device's name will be ESPTEST.
 	* After pairing, user must know what COM Port is used for bluetooth reception. To figure out your COM port, either:
@@ -17,7 +17,7 @@
 
 ## Contents
 
-### BT_wtih_info_string_ESP32
+### BT_with_info_string_ESP32
 * is not strictly necessary to run the files, but contains the final code the ESP32 runs to communicate over bluetooth and sense bikes
 ### ESP_BT_handler.py 
 * Is called by sanitize to receive data from the ESP32 and pass it along.
