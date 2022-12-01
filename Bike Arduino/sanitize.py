@@ -16,7 +16,6 @@ DEBUG_MODE = True
 
 classifier_data = {'DIST_THRESH': 15}
 r = rack.Rack()
-PORT = 7
 
 
 def parse_setup():
