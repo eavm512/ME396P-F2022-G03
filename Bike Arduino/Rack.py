@@ -2,10 +2,11 @@ from datetime import datetime
 
 
 class Rack:
-    def __init__(self):
+    def __init__(self, name='unnamed'):
         '''
         
         '''
+        self.name = name
         self.bays = {} # Dict
         self.updated = 0 # Time stamp of last update
     
@@ -51,10 +52,7 @@ class Rack:
         '''
 
         f = open('rack-log.txt', 'a')
-        f.write('\n')
-        f.write('{0}\n'.format(self.updated))
-        for bay, state in self.bays.items():
-            f.write('{0} {1}\n'.format(bay, state))
+        f.write('{0};{1};{2}\n'.format(self.name, self.updated, self.bays))
         f.close()
 
 
