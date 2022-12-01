@@ -17,13 +17,15 @@
 * See how to run in emulation mode and How to run project with live Bluetooth Data for next steps
 * If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
 
-## How to run in emulation mode (without bluetooth hardware)
-* This is the expected mode most graders and casual viewers will run in
+## How to run in emulation mode (without bluetooth hardware) (EMULATE = 0, 1, 2, 3, 4 in sanitize.py)
+* This is the expected mode most graders and casual viewers will run in.
 * The cloned repository should be preset in Emulation mode, but you can modify the exact emulation parameters
 * Modify the following parameters in sanitize.py
 	* set EMULATE to 0, 1, 2, 3, or 4. See notes under Sanitize.py for details on what each setting does
+* NOTE: the emulations run very quickly, and emulate one message from the ESP32. In DEBUG_MODE (DEBUG_MODE = True in sanitize.py) They will generate one line in the log. To generate multiple lines in the log, it is reccomended to repeatedly run the program with emulation mode 0 (which will randomly select between the four emulation data sets). Flask will still work even if the emulation stops running becuase it pulls data from the most recent log, which persists.
+	* If in continuous mode, (DEBUG_MODE = False in sanitize.py) the emulation will run indefinitely. If any mode greater than EMULATE = 0 is selected, the log will only generate one line, because the rack status will not change and the Rack class only writes a new line to the log if the status changes. If EMULATE = 0 several lines will be appended to the log, as the emulated messages will be randomly sent and be read as status changes, as long as the program is allowed to run. 
 
-## How to run project with live Bluetooth Data from ESP32
+## How to run project with live Bluetooth Data from ESP32 (Emulate = -1 in sanitize.py)
 * Requirements for Bluetooth Mode:
 	* User must first pair with the ESP32. If using arduino sketches from this repo, the device's name will be ESPTEST.
 	* After pairing, user must know what COM Port is used for bluetooth reception. To figure out your COM port, either:
