@@ -18,7 +18,7 @@ void setup() {
 
   Serial.begin(9600);
   Serial.println('ESP32s testing!');
-  SerialBT.begin("ESPTest");
+  SerialBT.begin("ESPTest2");
   Serial.println("BT began!");
 
 
