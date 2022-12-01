@@ -11,6 +11,8 @@ from Rack import *
 import re
 from collections import namedtuple
 
+EMULATE = 0 #-1: use bluetooth, 0: emulate
+
 line_re = None
 classifier_data = None
 rack = None
@@ -50,7 +52,7 @@ def sanitize():
         pass
     
     def port_listnener(port):
-        raw_lines = get_messages(port = 7)  ##### udpate port if necessary (unlikely)
+        raw_lines = get_messages(port = 7, fake = EMULATE)  ##### udpate port if necessary (unlikely)
         line_data = parse_raw_lines(raw_lines)
         if grammar_is_good(line_data):
             the_dict = classify(line_data)
