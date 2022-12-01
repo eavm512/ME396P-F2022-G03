@@ -4,7 +4,7 @@ This directory contains group information on how we went about the project and h
 - information on the contents of the Rack class, including an example log and example valid racks
 - makes the note that True is "full" (there's a bike in the bay) and False is an open available bay
 
-The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) when an update was passed. This was revised such that a log like the one in [rack-log early nov 30.txt](/Standards/rack-class/rack-log_early_nov_30.txt), which logs the status of the entire rack with a timestamp.
+The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) when an update was passed. The class was revised to generate a log such as [rack-log early nov 30.txt](/Standards/rack-class/rack-log_early_nov_30.txt), where each entry contains a timestamp with the entire rack's status.
 
 The current iteration generates a single-line log such as [rack-log.txt](/Standards/rack-class/rack-log.txt), to make it easier for flask to pull the relevant data, and to include a name to later support multiple racks. Rack.py will also only generate a new log if there is a change to the status of the rack to prevent log file from exploding in size.
 
@@ -19,6 +19,6 @@ The current iteration generates a single-line log such as [rack-log.txt](/Standa
 - an intial set of data that the ESP32 bluetooth board would feed to python (and sanitize)
 - the data would later change, and example data is now stored in the emulator within ESP_BT_Handler.py
 
-#mod_example_sonar_arduino_uno_version
+# mod_example_sonar_arduino_uno_version
 - early arduino file that toggled and LED based on sonar readings
 - proved we could sense bike
