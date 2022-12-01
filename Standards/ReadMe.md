@@ -14,3 +14,7 @@ This directory contains group information on how we want to go about the project
 # sonar_demo_data
 - an intial set of data that the ESP32 bluetooth board would feed to python (and sanitize)
 - the data would later change, and example data is now stored in the emulator within ESP_BT_Handler.py
+
+#mod_example_sonar_arduino_uno_version
+- early arduino file that toggled and LED based on sonar readings
+- proved we could sense bike
