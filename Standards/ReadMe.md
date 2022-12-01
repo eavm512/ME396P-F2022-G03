@@ -4,9 +4,9 @@ This directory contains group information on how we went about the project and h
 - information on the contents of the Rack class, including an example log and example valid racks
 - makes the note that True is "full" (there's a bike in the bay) and False is an open available bay
 
-The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) when an update was passed. The class was revised to generate a log such as [rack-log early nov 30.txt](/Standards/rack-class/rack-log_early_nov_30.txt), where each entry contains a timestamp with the entire rack's status.
+The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) every update. The class was revised to generate a log such as [rack-log early nov 30.txt](/Standards/rack-class/rack-log_early_nov_30.txt), where each entry contains a timestamp with the entire rack's status.
 
-The current iteration generates a single-line log such as [rack-log.txt](/Standards/rack-class/rack-log.txt), to make it easier for flask to pull the relevant data, and to include a name to later support multiple racks. Rack.py will also only generate a new log if there is a change to the status of the rack to prevent log file from exploding in size.
+The current iteration generates a single-line log such as [rack-log.txt](/Standards/rack-class/rack-log.txt) to simplify reading the log through code, and to add a rack name to support multiple racks. Rack.py will only generate a new log if there is a change to the status of the rack to prevent the log file from exploding in size.
 
 # brainstorm data structure
 - meeting images from our first large brainstorm on how to structure the project
