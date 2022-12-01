@@ -6,6 +6,46 @@ Matthew	Cassoli
 John	Maweu
 Enrique	Velasquez Morquecho
 
-
 link to slides for presentation Nov 29
 https://docs.google.com/presentation/d/1ecF_Bn3KfwUfmLmnrA_vp8SFRSO8M4qUiGO0ULjh6y4/edit#slide=id.p4
+
+___________________________________
+PROJECT PHILOSOPHY:
+  Our project objective was to create a solution that could
+  -Sense a bike in a bay of a bike rack (or bays / or racks)
+  -Transmit that information to some user viewable location
+
+  We accomplished this via:
+  -Hardware, in the form of a NodeMCU ESP32 connected to an ultrasonic distance sensor in a 3D printed case
+  -The hardware transmitting its readings via bluetooth to a computer running python
+  -A python function to sanitize the incoming data and push it to a custom class called "Rack"
+    -The Rack class accomodates multiple bike bays that could be present on a bike rack
+  -Having the Rack class automatically generate a log of the rack's status (based on sanitizer's input)
+    -The logs are reasonably readable, and uniform for historical reading
+  -A flask application running on localhost that queried the logs made by Rack to display data to the user in near realtime
+
+  
+
+CONTENTS OF THIS DIRECTORY:
+Bike Arduino
+-contains all code (python and arduino) to run the project in either "emulation mode" or with actual hardware.
+-contains templates and resources for the final project
+-Is the main directory users of this project will work in
+
+Enclosure CAD:
+-contains STL files for the 3D printed enclosure
+
+Standards:
+-contains files we shared among ourselves to help work together detailingn what modules would hand off what data formats to each other.
+
+Video and demo of hardware working:
+-Contains historical files and files of the final hardware product working so graders and observers can appreciate the hardware aspect of the project even if they only run in emulation mode
+
+Lightning Talk and Demo-test files:
+-Contains historical information from our lightning talk, and steps along the way in the project like proof of concepts, which helped develop the project, but whose code is not direclty used in the finanl product.
+
+Project Proposal.txt:
+-a historical log of the project proposal presented in October
+
+Final Project Rubric with notes.docx:
+-internal tracking document to compare our progress vs the rubric, as well as collect ideas for improvements
