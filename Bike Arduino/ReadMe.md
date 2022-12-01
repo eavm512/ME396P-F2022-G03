@@ -13,12 +13,12 @@
 	* serial
 	* time
 	* random
-* If operating in bluetooth mode, your computer must have Bluetooth and the ability to pair with and ESP32 chip
+* If operating in bluetooth mode, your computer must have Bluetooth and the ability to pair with an ESP32 chip
 * See how to run in emulation mode and How to run project with live Bluetooth Data for next steps
 * If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
 
 ## How to run in emulation mode (without bluetooth hardware)
-* This is the expected mode graders and casual viewers will run in
+* This is the expected mode most graders and casual viewers will run in
 * The cloned repository should be preset in Emulation mode, but you can modify the exact emulation parameters
 * Modify the following parameters in sanitize.py
 	* set EMULATE to 0, 1, 2, 3, or 4. See notes under Sanitize.py for details on what each setting does
