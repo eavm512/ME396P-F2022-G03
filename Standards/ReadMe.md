@@ -25,3 +25,6 @@ The current iteration generates a single-line log such as [rack-log.txt](/Standa
 
 # John Nov 28 eg data.txt
 - An old data format that was previously sent to sanitize.py This was superseded by a numbers only format (the words AVAILABLE and NOT AVAILABLE no long appear)
+
+# Group Project Ideas.txt
+- Ideas from our initial brainstorm (even before project proposal)
