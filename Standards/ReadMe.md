@@ -4,7 +4,7 @@ This directory contains group information on how we want to go about the project
 - information on the contents of the Rack class, including an example log and example valid racks
 - makes the note that True is "full" (there's a bike in the bay) and False is an open available bay
 
-The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) when an update was passed. This was revised such that a log like the one in [rack-log early nov 30.txt](/Standards/rack-class/rack-log early nov 30.txt), which logs the status of the entire rack with a timestamp.f
+The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) when an update was passed. This was revised such that a log like the one in [rack-log early nov 30.txt](/Standards/rack-class/rack-log_early_nov_30.txt), which logs the status of the entire rack with a timestamp.
 
 The current iteration generates a single-line log such as [rack-log.txt](/Standards/rack-class/rack-log.txt), to make it easier for flask to pull the relevant data, and to include a name to later support multiple racks. Rack.py will also only generate a new log if there is a change to the status of the rack to prevent log file from exploding in size.
 
