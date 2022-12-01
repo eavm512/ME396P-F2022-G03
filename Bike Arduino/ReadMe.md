@@ -39,9 +39,9 @@
 	* Set EMULATE to -1 in sanitize.py
 
 ## How to initialize and run the Flask application
-	* First open FlaskBikeRackDisplay.py
-	* The cloned repository should be structured in the formate that there is a templates folder that contains the HTML files for the pages that flask will reference
-	* Once the Flask is opened and running a URL in the console will appear and entering that into a browser to access the flask web application
+* First open FlaskBikeRackDisplay.py
+* The cloned repository should be structured in the formate that there is a templates folder that contains the HTML files for the pages that flask will reference
+* Once the Flask is opened and running a URL in the console will appear and entering that into a browser to access the flask web application
 
 # Contents
 
