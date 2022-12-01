@@ -10,6 +10,7 @@ Link to slides of Nov 29, 2022 class presentation:
 https://docs.google.com/presentation/d/1ecF_Bn3KfwUfmLmnrA_vp8SFRSO8M4qUiGO0ULjh6y4/edit#slide=id.p4
 
 # HOW TO USE THIS REPO
+* To run our project, head to the "Bike Arduino" directory [LINK](https://github.com/eavm512/ME396P-F2022-G03/tree/main/Bike%20Arduino)
 * The primary subdirectories in this repo have more readme files that explain the contents of each folder, and in some caeses give instructions on how to use them.
 * Below are our project team philosophy and a description of contents of this directory
 
