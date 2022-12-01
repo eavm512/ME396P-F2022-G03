@@ -102,14 +102,14 @@ def home():
 @app.route('/rack1')
 def rack1():
 
-     information = formateBayData('unnamed1')
+     information = formateBayData('unnamed')
      return flask.render_template("rack1.html", headings = information[0], data = information[1])
     # return
 
 @app.route('/rack2')
 def rack2():
 
-     information = formateBayData('unnamed2')
+     information = formateBayData('unnamed1')
      return flask.render_template("rack2.html", headings = information[0], data = information[1])
 
 if __name__ == '__main__':
