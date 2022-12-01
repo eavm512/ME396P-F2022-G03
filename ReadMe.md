@@ -54,8 +54,10 @@ We accomplished this via:
 - contains templates and resources for the final project
 - Is the main directory users of this project will work in
 
-## Enclosure CAD
+## Hardware Info and CAD
 - contains STL files for the 3D printed enclosure
+- Fusion 360 files of the 3D printed models and the electronics
+- A bill of materials, including where to potentially acquire components
 
 ## Standards
 - contains files we shared among ourselves to help work together detailingn what modules would hand off what data formats to each other.
