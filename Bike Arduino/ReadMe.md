@@ -18,16 +18,8 @@
 * If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
 * Move, delete, or rename rack-log.txt so that the Rack class can make a new log for your tests.
 	* If you do not move delete or rename rack-log.txt, the Rack class will append data to the end of the current log.
-* Go through the steps in either "How to run in emulation mode" or "How to run the project with live Bluetooth Data" below
-* Run sanitize.py
-	* Rack.py, FlaskBikeRackDisplay.py, ESP_BT_Handler.py, templates (folder) and rack-log.txt need to be in the same directory as sanitize.py. This is the case in the repo as cloned.
-	* sanitize.py needs to have permission to create or edit rack-log.txt which it will attempt to make in the same directory sanitize.py is located in.
-* Run FlaskBikeRackDisplay.py (see How to initialize and run the Flask application for more info)
-* Navigate to the IP address printed by FlaskBikeRackDisplay.py
-	* Only Rack 1 will contain data in the Flask UI. Rack 2 button exists to show what a disconnected Rack would be like.
-	* See our video in /Video and demo of hardware working/Videos of Final Product/compressed Flask operation and scalibility demo.mp4 for a visualization of multiple racks being shown in Flask to see how the Flask application is scaleable.
 
-## How to run in emulation mode (without bluetooth hardware) (EMULATE = 0, 1, 2, 3, 4 in sanitize.py)
+## To prepare to run in emulation mode (without bluetooth hardware) (EMULATE = 0, 1, 2, 3, 4 in sanitize.py)
 * This is the expected mode most graders and casual viewers will run in.
 * The cloned repository should be preset in Emulation mode, but you can modify the exact emulation parameters
 * Modify the following parameters in sanitize.py
@@ -35,7 +27,7 @@
 * NOTE: the emulations run very quickly, and emulate one message from the ESP32. In DEBUG_MODE (DEBUG_MODE = True in sanitize.py) They will generate one line in the log. To generate multiple lines in the log, it is reccomended to repeatedly run the program with emulation mode 0 (which will randomly select between the four emulation data sets). Flask will still work even if the emulation stops running becuase it pulls data from the most recent log, which persists.
 	* If in continuous mode, (DEBUG_MODE = False in sanitize.py) the emulation will run indefinitely. If any mode greater than EMULATE = 0 is selected, the log will only generate one line, because the rack status will not change and the Rack class only writes a new line to the log if the status changes. If EMULATE = 0 several lines will be appended to the log, as the emulated messages will be randomly sent and be read as status changes, as long as the program is allowed to run. 
 
-## How to run project with live Bluetooth Data from ESP32 (Emulate = -1 in sanitize.py)
+## To prepare to run project with live Bluetooth Data from ESP32 (Emulate = -1 in sanitize.py)
 * Requirements for Bluetooth Mode:
 	* User must first pair with the ESP32. If using arduino sketches from this repo, the device's name will be ESPTEST.
 	* After pairing, user must know what COM Port is used for bluetooth reception. To figure out your COM port, either:
@@ -45,6 +37,17 @@
 	* After determining which port is appropriate, set the port number in the PORT variable at the top of sanitize.py
 	* Set DEBUG_MODE to False in sanitize.py
 	* Set EMULATE to -1 in sanitize.py
+
+## To run the project
+* Go through the steps in either "To prepare to run in emulation mode" or "To prepare to run project with live Bluetooth Data" above
+* Open multiple consoles / kernels. You will need to run 2 .py files at once. 
+* Run sanitize.py
+	* Rack.py, FlaskBikeRackDisplay.py, ESP_BT_Handler.py, templates (folder) and rack-log.txt need to be in the same directory as sanitize.py. This is the case in the repo as cloned.
+	* sanitize.py needs to have permission to create or edit rack-log.txt which it will attempt to make in the same directory sanitize.py is located in.
+* In the other console / kernel, run FlaskBikeRackDisplay.py (see "How to initialize and run the Flask application" for more info)
+* Navigate to the IP address printed by FlaskBikeRackDisplay.py (probably http://127.0.0.1:5000)
+	* Only Rack 1 will contain data in the Flask UI. Rack 2 button exists to show what a disconnected Rack would be like.
+	* See our video in /Video and demo of hardware working/Videos of Final Product/compressed Flask operation and scalibility demo.mp4 for a visualization of multiple racks being shown in Flask to see how the Flask application is scaleable.
 
 ## How to initialize and run the Flask application
 * First open FlaskBikeRackDisplay.py
