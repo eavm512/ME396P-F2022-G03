@@ -5,68 +5,81 @@
 #   per "Eg_dict = {0 : True, 1: False, 2 : True, 3 : True, 4 : False}" in Standards/Rack_Dict_convention
 #   per Bike Arduino/mod_example_sonar_arduino_uno_version/mod_example_sonar_arduino_uno_version.ino
 
-from ESP_BT_Handler import *
-from Rack import *
-#import Rack as Rack
+import ESP_BT_Handler as bt
+import Rack as rack
 import re
 from collections import namedtuple
 
-EMULATE = 0 #-1: use bluetooth, 0: emulate
+EMULATE = 3 #-1: use bluetooth, 0: emulate random choice, 1: no bike, 2: bike, 3: no bike, 4: noisy but bike.
+PORT = 7
+DEBUG_MODE = True
 
-line_re = None
-classifier_data = None
-rack = None
+classifier_data = {'DIST_THRESH': 15}
+r = rack.Rack()
+PORT = 7
 
-def load_classifier_data():
-    classifier_data = {'DIST_THRESH': 15}
 
 def parse_setup():
-    distance_pat = '(0|[0-9][1-9]*)'
-    availability_pat = '(AVAILABLE|NOT AVAILABLE)'
-    line_re = re.compile(r'' + distance_pat + availability_pat + '\n')
-    
-def rack_init(rack_map_data):
-    rack = Rack()
+    distance_pat = '(0|[1-9][0-9]*)'
+    return re.compile(r'' + distance_pat + '\r\n')
 
-LineData = namedtuple('LineData', ['availability', 'distance'])
+line_re = parse_setup()
+LineData = namedtuple('LineData', ['distance'])
 
-def sanitize():
-    def parse_raw_lines(raw_lines):
-        rx_matching_lines = []
-        for raw_line in raw_lines:
-            match = line_re.match(raw_line)
-            if match:
-                availability = match[1][0] != 'A'
-                distance = int(match[0])
-                rx_matching_lines.append(LineData(availability=availability,distance=distance))
-        return 
-    
-    def grammar_is_good(line_data):
-        return len(line_data)  # using truthiness
+def parse_raw_lines(raw_lines):
+    rx_matching_lines = []
+    for raw_line in raw_lines:
+        match = line_re.match(raw_line)
+        if match:
+            distance = int(match[0])
+            rx_matching_lines.append(LineData(distance=distance))
+    return rx_matching_lines
+
+def grammar_is_good(line_data):
+    return len(line_data)  # using truthiness
    
-    def classify(line_data):
-        return {0 : line_data[0].availability}  # hack: just return whatever is in the first element (there is one because grammar_is_good)
+def classify(line_data):
+    bike_present = False
+    bikes_found = 0
+    no_bikes = 0
     
-    def push_to_rack(the_dict):
-        rack.update(the_dict)
-        pass
+    for reading in line_data:
+        if reading.distance < classifier_data['DIST_THRESH']:
+            bikes_found += 1
+        else:
+            no_bikes += 1
     
-    def port_listnener(port):
-        raw_lines = get_messages(port = 7, fake = EMULATE)  ##### udpate port if necessary (unlikely)
-        line_data = parse_raw_lines(raw_lines)
-        if grammar_is_good(line_data):
-            the_dict = classify(line_data)
-            push_to_rack(the_dict)
-    
-    port_listener()
+    if bikes_found > len(line_data)*.25:
+        bike_present = True
+
+    # return {0 : line_data[0].distance < classifier_data['DIST_THRESH']}
+    return {0 : bike_present}
+
+def push_to_rack(the_dict):
+    r.update_rack(the_dict)
+
+def port_listener(PORT):
+    raw_lines = bt.get_messages(port = PORT, fake = EMULATE)  ##### udpate port if necessary (unlikely)
+    line_data = parse_raw_lines(raw_lines)
+    # print('line data is: ', line_data)
+    if grammar_is_good(line_data):
+        the_dict = classify(line_data)
+        push_to_rack(the_dict)
+
+def sanitize(): 
+    port_listener(PORT)
 
 def supervise():
-    load_classifier_data()
-    parse_setup()
-    rack_init(rack_map_data)
-    while True:
-        sanitize()
+    count = 0
+    if DEBUG_MODE:
+        while count < 100:
+            count += 1
+            sanitize()
+    else:
+        while True:
+            sanitize()
   
 if __name__ == '__main__':
+    # print('running main!')
     supervise()
  

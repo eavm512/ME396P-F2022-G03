@@ -18,7 +18,7 @@ void setup() {
 
   Serial.begin(9600);
   Serial.println('ESP32s testing!');
-  SerialBT.begin("ESPTest2");
+  SerialBT.begin("ESPTest");
   Serial.println("BT began!");
 
 
@@ -37,20 +37,19 @@ void loop() {
   distance = duration * 0.034 / 2;
   String dstring = String(distance);
 
-  String bike_status = "AVAILABLE ";
+  // String bike_status = "AVAILABLE ";
 
   if(distance < DIST_THRESH){
     digitalWrite(LEDPin, HIGH);
-    bike_status = "NOT AVAILABLE ";
+    // bike_status = "NOT AVAILABLE ";
   }else{
     digitalWrite(LEDPin, LOW);
   }
 
   Serial.print(dstring);
   Serial.println();
-  bike_status += distance;
-  bike_status += '\n';
-  SerialBT.print(bike_status);
+  int bike_status = distance;
+  SerialBT.println(bike_status);
 
   delay(20);
 }

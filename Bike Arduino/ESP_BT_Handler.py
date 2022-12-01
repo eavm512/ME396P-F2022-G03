@@ -16,10 +16,10 @@ MESSAGES_PER_QUERY = 10
 TIMEOUT = 5
 
 FAKE_DATA = {}
-FAKE_DATA[1] = ['AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n', 'AVAILABLE 20\n']
-FAKE_DATA[2] = ['AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n']
-FAKE_DATA[3] = ['NOT AVAILABLE 13\n', 'NOT AVAILABLE 6\n', 'NOT AVAILABLE 5\n', 'NOT AVAILABLE 4\n', 'NOT AVAILABLE 5\n', 'NOT AVAILABLE 5\n', 'NOT AVAILABLE 3\n', 'NOT AVAILABLE 3\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n', 'AVAILABLE 15\n']
-FAKE_DATA[4] = ['NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n', 'NOT AVAILABLE 1\n']
+FAKE_DATA[1] = ['187\r\n', '186\r\n', '187\r\n', '187\r\n', '187\r\n', '186\r\n', '186\r\n', '187\r\n', '186\r\n', '187\r\n']
+FAKE_DATA[2] = ['3\r\n', '3\r\n', '3\r\n', '3\r\n', '3\r\n', '3\r\n', '3\r\n', '3\r\n', '3\r\n', '3\r\n']
+FAKE_DATA[3] = ['17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n']
+FAKE_DATA[4] = ['10\r\n', '8\r\n', '17\r\n', '17\r\n', '1\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n', '17\r\n']
 
 
 def port_info():
@@ -41,7 +41,7 @@ def port_info():
         
     pass
 
-def get_messages(port = 4, fake = -1, message_len = 10):
+def get_messages(port = 0, fake = -1, message_len = 10):
     '''
     Returns a list of strings which are messages from the ESP. Strings within
     the list take the following format:
@@ -67,12 +67,15 @@ def get_messages(port = 4, fake = -1, message_len = 10):
     if fake < 0:
         serialInst = serial.Serial()
         
-        val = port
+        portVar = port
         
-        for x in range(0,len(portsList)):
-            if portsList[x].startswith("COM" + str(val)):
-                portVar = "COM" + str(val)
-                print(portVar)
+        # if port == 0:
+            
+        
+        # for x in range(0,len(portsList)):
+        #     if portsList[x].startswith("COM" + str(val)):
+        #         portVar = "COM" + str(val)
+        #         print(portVar)
         
         serialInst.baudrate = 9600
         serialInst.port = portVar
