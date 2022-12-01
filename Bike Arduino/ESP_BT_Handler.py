@@ -63,11 +63,11 @@ def get_messages(port = 0, fake = -1, message_len = 10):
     If we do not receive messages from the given port, there is a timeout of around .1*message_len seconds.
     
     '''
-    
+
     if fake < 0:
         serialInst = serial.Serial()
         
-        portVar = port
+        portVar = "COM" + str(port)
         
         # if port == 0:
             
