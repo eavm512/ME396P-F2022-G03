@@ -1,4 +1,4 @@
-This directory contains group information on how we want to go about the project
+This directory contains group information on how we went about the project and handed off data to each other
 
 # rack-class
 - information on the contents of the Rack class, including an example log and example valid racks
