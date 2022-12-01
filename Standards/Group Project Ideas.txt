@@ -1,0 +1,94 @@
+Idea candidates for G03
+
+Ideas for better group name:
+============================
+-Go Go Go
+-"with team as successful_group:"
+-smart quotes
+-serial and milk
+
+
+Ideas for who to target:
+========================
+  * prof
+     likes: robotics, python
+     return: grades, feedback, etc.
+  * other students in class: 
+     likes: stats below, ME, some programmers/some not
+     return: Peer Evaluation(s): 10%
+  * ourselves: 
+     likes: TBD
+     return: project effort
+
+Ideas for scope:
+================
+Arduino as Lab environment for education / DAQ
+----------------------------------------------
+-set up Python based application (maybe GUI maybe set of command line functions) to interface arduino for lab experiments
+-We pre-cook the lab experiments
+-Some prior ideas could be experiments / demos
+	-Plant water / humidity sensor
+	-Fruit ripeness poker
+	-proximity sensor
+-Provides ability to save data coming in from arduino.
+
+Bike rack availability monitor
+------------------------------
+-Displays if there are available spots at a given bike rack online
+-Concerns:
+	-mechanism to detect rack is available / not
+		-visual?
+		-Contact (varies too much?)
+
+Parking Space availability monitor
+----------------------------------
+-if spaces area available, turn on light or add to sign 50' away
+-Similar to bike rack, but cars park more consistently than bikes.
+
+
+virtual MCU
+-----------
+ - problem: part (un)availability and reliability (middleware)
+   1) supply chain issues might make desired parts difficult to obtain
+   2) parts with common core (think ARM) and common libraries (think FreeRTOS) suggest common mode failure
+   3) planned obsolescence leading to software redesign
+   4) vendor lockin due to IDE and programmer interface
+ - solution virtual MCU with "standard" peripheral interfaces (timers, GPIO, UART)
+   1) application: voting logic (e.g., https://instrumentationtools.com/wp-content/uploads/2019/05/Voting-Logic-in-Safety-Instrumented-System-SIS.png)
+   2) application: get a product (they all end up this way) to perform something potentially useful without a major software rewrite down the road
+      if you have lots of shitty devices, hook them up to get a virtual MCU more peripherals, cpu cycles, whatever
+        note: arduino uno MCU is "Not Recommended for New Designs" (https://www.microchip.com/en-us/product/ATmega328P)
+   3) application: simulate peripherals that appear only in higher end devices (reduce volume fabrication cost)
+   4) we already mentioned serial something
+      among other peripherals UART are typically always present
+ - who might care
+   1) many "embedded" people in the class
+        might be looking at embedded from the inside (how to program) or the outside (make something neat)
+   2) typical ME who aims for performance (offered by peripherals) without the software development headache of tools designed by and for CS/CE/EE
+ - where does python come in?
+   much easier to do bookkeeping in python than C (still needed for lower level)
+ - goal
+   proof of concept rather than a finished product
+ - potential issues
+   1) timing
+   2) I/O contention
+   3) others TBD
+ 
+stats on other students in class
+================================
+TOPIC		COUNT
+AI, Machine Learning		59
+Embedded Systems (i.e. Arduinos, etc.)		41
+Simulation		36
+Web or Database Applications		35
+Robotics (ROS)		34
+Computer Vision		34
+Statistics		29
+Robotics (non-ROS)		28
+Graphic User Interfaces (GUIs)		19
+Gaming		18
+Applied Mathematics (Numerical Methods)		18
+Graph Structures		8
+Thermal Fluid Systems		4
+Graphics		4
+Symbolic Mathematics		3
