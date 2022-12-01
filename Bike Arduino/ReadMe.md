@@ -16,6 +16,8 @@
 * If operating in bluetooth mode, your computer must have Bluetooth and the ability to pair with an ESP32 chip
 * See how to run in emulation mode and How to run project with live Bluetooth Data for next steps
 * If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
+* Move, delete, or rename rack-log.txt so that the Rack class can make a new log for your tests.
+	* If you do not move delete or rename rack-log.txt, the Rack class will append data to the end of the current log.
 
 ## How to run in emulation mode (without bluetooth hardware)
 * This is the expected mode most graders and casual viewers will run in
@@ -66,5 +68,10 @@
 
 ### Rack.py
 * Defines the Rack class. See Standards folder and readme for more information on Rack class.
+
+### rack-log.txt
+* An EXAMPLE of this log is included in the repo
+* delete or rename this before running emulations (otherwise data will just be appended to the log)
+* This is the log the Rack class makes when it detects a change in status
 
 			
