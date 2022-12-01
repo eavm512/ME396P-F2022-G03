@@ -22,3 +22,6 @@ The current iteration generates a single-line log such as [rack-log.txt](/Standa
 # mod_example_sonar_arduino_uno_version
 - early arduino file that toggled and LED based on sonar readings
 - proved we could sense bike
+
+# John Nov 28 eg data.txt
+- An old data format that was previously sent to sanitize.py This was superseded by a numbers only format (the words AVAILABLE and NOT AVAILABLE no long appear)
