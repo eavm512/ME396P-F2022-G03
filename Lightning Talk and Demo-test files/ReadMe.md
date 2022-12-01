@@ -18,3 +18,9 @@ This directory contains historical code for reference, proofs of concept, and li
 #Bluetooth Com
 - historical sketches for the ESP32 board getting it to communicate over bluetooth
 - BT_Demo.py file that receives bluetooth data
+
+#FlaskDemo
+- and earlier version of the Flask portion of the project
+- relied on being passed Rack object
+- was later modified to final version which read logs instead of Rack objects so that Flask (which is constantly running) and the rest of the python project
+		(which is constantly running to read bluetooth information)can both run at the same time via multiple kernels so as to not need multi threading.
