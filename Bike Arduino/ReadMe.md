@@ -18,6 +18,14 @@
 * If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
 * Move, delete, or rename rack-log.txt so that the Rack class can make a new log for your tests.
 	* If you do not move delete or rename rack-log.txt, the Rack class will append data to the end of the current log.
+* Go through the steps in either "How to run in emulation mode" or "How to run the project with live Bluetooth Data" below
+* Run sanitize.py
+	* Rack.py, FlaskBikeRackDisplay.py, ESP_BT_Handler.py, templates (folder) and rack-log.txt need to be in the same directory as sanitize.py. This is the case in the repo as cloned.
+	* sanitize.py needs to have permission to create or edit rack-log.txt which it will attempt to make in the same directory sanitize.py is located in.
+* Run FlaskBikeRackDisplay.py (see How to initialize and run the Flask application for more info)
+* Navigate to the IP address printed by FlaskBikeRackDisplay.py
+	* Only Rack 1 will contain data in the Flask UI. Rack 2 button exists to show what a disconnected Rack would be like.
+	* See our video in /Video and demo of hardware working/Videos of Final Product/compressed Flask operation and scalibility demo.mp4 for a visualization of multiple racks being shown in Flask to see how the Flask application is scaleable.
 
 ## How to run in emulation mode (without bluetooth hardware) (EMULATE = 0, 1, 2, 3, 4 in sanitize.py)
 * This is the expected mode most graders and casual viewers will run in.
@@ -40,6 +48,7 @@
 
 ## How to initialize and run the Flask application
 * First open FlaskBikeRackDisplay.py
+* FlaskBikeRackDisplay.py should be in the directory with the othe .py files as it is in this repo (the "Bike Arduino" directory by default)
 * The cloned repository should be structured in the format that there is a templates folder that contains the HTML files for the pages that flask will reference
 * Once the Flask is opened and running a URL in the console will appear. Enter that into a browser to access the flask web application
 
