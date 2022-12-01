@@ -80,7 +80,7 @@ We accomplished this via:
 ___________________________________
 Group Assignments:
 All group members contributed to each part of the project, but leaders of specific areas were:
-Matthew: Arduino code / ESP32 programming, receiving bluetooth messages in python, hardware assembly
-John: sanitization of incoming bluetooth data, data architecture
-Kaya: implementation of Rack class (including logging, prep for flask)
-Enrique: creation of flask interface
+* Matthew: Arduino code / ESP32 programming, receiving bluetooth messages in python, hardware assembly
+* John: sanitization of incoming bluetooth data, data architecture
+* Kaya: implementation of Rack class (including logging, prep for flask)
+* Enrique: creation of flask interface
