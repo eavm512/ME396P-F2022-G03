@@ -1,6 +1,8 @@
 # This directory contains the main files to run the project, and their critical support files.
 
-# Base requirements to run the project:
+# How to run the project
+
+## Base requirements to run the project:
 * Clone this repository and navigate to the Bike Arduino directory
 * By default, the files are in Emulation mode (use pre-generated data, no bluetooth data being transmitted)
 * Ensure you have at least Python 3.7 and the following libraries:
@@ -13,14 +15,15 @@
 	* random
 * If operating in bluetooth mode, your computer must have Bluetooth and the ability to pair with and ESP32 chip
 * See how to run in emulation mode and How to run project with live Bluetooth Data for next steps
+* If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
 
-# How to run in emulation mode (without bluetooth hardware)
+## How to run in emulation mode (without bluetooth hardware)
 * This is the expected mode graders and casual viewers will run in
 * The cloned repository should be preset in Emulation mode, but you can modify the exact emulation parameters
 * Modify the following parameters in sanitize.py
 	* set EMULATE to 0, 1, 2, 3, or 4. See notes under Sanitize.py for details on what each setting does
 
-# How to run project with live Bluetooth Data from ESP32
+## How to run project with live Bluetooth Data from ESP32
 * Requirements for Bluetooth Mode:
 	* User must first pair with the ESP32. If using arduino sketches from this repo, the device's name will be ESPTEST.
 	* After pairing, user must know what COM Port is used for bluetooth reception. To figure out your COM port, either:
@@ -33,20 +36,22 @@
 
 ## How to initialize and run the Flask application
 
-## Contents
+# Contents
 
 ### BT_with_info_string_ESP32
 * is not strictly necessary to run the files, but contains the final code the ESP32 runs to communicate over bluetooth and sense bikes
+
 ### ESP_BT_handler.py 
 * Is called by sanitize to receive data from the ESP32 and pass it along.
 * In emulation mode, fake data is stored in this file, which is sent to sanitize. 
 * In bluetooth mode, real data received over bluetooth from the ESP32 is sent to sanitize
 
-
-
-
 ### Sanitize.py
-
+* Is the main python file that loops indefinitely.
+* Calls ESP_BT_handler.get_messages() to get information from the ESP (or fake data)
+* Parses information from ESP_BT_handler.get_messages()
+* Will loop indefinitely unless DEBUG_MODE at the top of the file is False. If False, will only call 100 messages.
+	* DEBUG_MODE is useful to debug creating a log file. Flask should still run if the log file has been created, even if it isn't being updated, but data will not update.
 * To change between emulation and bluetooth modes, change the value of EMULATE global variable in sanitize.py
 	* -1 results in bluetooth mode. 
 	* 0 results in the main emulation mode (send premade fake data, but randomly select which data)
@@ -55,4 +60,11 @@
 		* 2) bike present
 		* 3) no bike present
 		* 4) bike present, but data is intentionally noisy
+		
+### Templates
+* Contains templates used by the Flask application to generate and style HTML
+
+### Rack.py
+* Defines the Rack class. See Standards folder and readme for more information on Rack class.
+
 			
