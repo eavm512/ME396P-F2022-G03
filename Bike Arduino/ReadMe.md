@@ -3,8 +3,13 @@
 # How to run the project
 
 ## Base requirements to run the project:
-* Clone this repository and navigate to the Bike Arduino directory
-* By default, the files are in Emulation mode (use pre-generated data, no bluetooth data being transmitted)
+* Clone this repository and navigate to the Bike Arduino directory. As supplied in the repo, the following files need to be in the same directory to run:
+	* ESP_BT_Handler.py
+	* FlaskBikeRackDisplay.py
+	* Rack.py
+	* sanitize.py
+	* templates (directory)
+* By default, the project runs in Emulation mode (uses pre-generated data, no bluetooth data being transmitted)
 * Ensure you have at least Python 3.7 and the following libraries:
 	* re (regular expression)
 	* collections
@@ -13,18 +18,18 @@
 	* serial
 	* time
 	* random
-* If operating in bluetooth mode, your computer must have Bluetooth and the ability to pair with an ESP32 chip
+* If operating in bluetooth mode, your computer must have Bluetooth and the ability to pair with an ESP32 chip. You will also need the hardware described in the project. 
 * See how to run in emulation mode and How to run project with live Bluetooth Data for next steps
-* If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely.
+* If not running in DEBUG_MODE (see sanitize.py below) the program will run indefinitely. If running in DEBUG_MODE, the program will listen for 100 messages from the ESP32 (takes around 10 seconds in emulation mode, 1-2 minutes in live hardware mode)
 * Move, delete, or rename rack-log.txt so that the Rack class can make a new log for your tests.
-	* If you do not move delete or rename rack-log.txt, the Rack class will append data to the end of the current log.
+	* If you do not move delete or rename rack-log.txt, the Rack class will append data to the end of the current log. This is fine but be sure to scroll to the bottom of the log if you do this to view the latest entries.
 
 ## To prepare to run in emulation mode (without bluetooth hardware) (EMULATE = 0, 1, 2, 3, 4 in sanitize.py)
 * This is the expected mode most graders and casual viewers will run in.
-* The cloned repository should be preset in Emulation mode, but you can modify the exact emulation parameters
+* The cloned repository should be preset in Emulation mode, but you can modify the exact emulation parameters via lines 13-15 of sanitize.py
 * Modify the following parameters in sanitize.py
-	* set EMULATE to 0, 1, 2, 3, or 4. See notes under Sanitize.py for details on what each setting does
-* NOTE: the emulations run very quickly, and emulate one message from the ESP32. In DEBUG_MODE (DEBUG_MODE = True in sanitize.py) They will generate one line in the log. To generate multiple lines in the log, it is reccomended to repeatedly run the program with emulation mode 0 (which will randomly select between the four emulation data sets). Flask will still work even if the emulation stops running becuase it pulls data from the most recent log, which persists.
+	* set EMULATE to 0, 1, 2, 3, or 4. See notes under sanitize.py for details on what each setting does
+* NOTE: the emulations run very quickly, and emulate one message from the ESP32. In DEBUG_MODE (DEBUG_MODE = True in sanitize.py) They will generate one line in the log. To generate multiple lines in the log, it is reccomended to repeatedly run the program with emulation mode 0 (which will randomly select between the four emulation data sets). Flask will still work even if the emulation stops running becuase it pulls data from the most recent log, which persists (assuming the user doesn't delete it).
 	* If in continuous mode, (DEBUG_MODE = False in sanitize.py) the emulation will run indefinitely. If any mode greater than EMULATE = 0 is selected, the log will only generate one line, because the rack status will not change and the Rack class only writes a new line to the log if the status changes. If EMULATE = 0 several lines will be appended to the log, as the emulated messages will be randomly sent and be read as status changes, as long as the program is allowed to run. 
 
 ## To prepare to run project with live Bluetooth Data from ESP32 (Emulate = -1 in sanitize.py)
@@ -95,11 +100,12 @@
   * log: appends a file named "rack-log.txt" with a new log entry.
 
 ### rack-log.txt
-* An EXAMPLE of this log is included in the repo
+* An EXAMPLE of this log is included in this repo
 * delete or rename this before running emulations (otherwise data will just be appended to the log)
 * This is the log the Rack class makes when it detects a change in status
+* This is the log FlaskBikeRackDisplay.py reads from to determine what data to display to users.
 
 ### FlaskBikeRackDisplay.py
 * Is the main Flask python file that genrates the local hosted web application that displays the rack data.
-* Calls formateBayData() to get information and produce a displayable information from the log-rack.txt
+* Calls formateBayData() to get information and produce a displayable information from the rack-log.txt
 * Calls and executes the variouse HTML files located in the Templates folder
