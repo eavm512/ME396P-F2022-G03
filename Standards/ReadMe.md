@@ -5,7 +5,7 @@ This directory contains group information on how we want to go about the project
 - makes the note that True is "full" (there's a bike in the bay) and False is an open available bay
 
 # brainstorm data structure
--meeting images from our first large brainstorm on how to structure the project
+- meeting images from our first large brainstorm on how to structure the project
 
 # comm_simulation
 - initial sketch on how to sort data from bluetooth from sensor
