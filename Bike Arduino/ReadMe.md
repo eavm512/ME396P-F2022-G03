@@ -39,6 +39,9 @@
 	* Set EMULATE to -1 in sanitize.py
 
 ## How to initialize and run the Flask application
+	* First open FlaskBikeRackDisplay.py
+	* The cloned repository should be structured in the formate that there is a templates folder that contains the HTML files for the pages that flask will reference
+	* Once the Flask is opened and running a URL in the console will appear and entering that into a browser to access the flask web application
 
 # Contents
 
@@ -84,3 +87,7 @@
 * delete or rename this before running emulations (otherwise data will just be appended to the log)
 * This is the log the Rack class makes when it detects a change in status
 
+### FlaskBikeRackDisplay.py
+* Is the main Flask python file that genrates the local hosted web application that displays the rack data.
+* Calls formateBayData() to get information and produce a displayable information from the log-rack.txt
+* Calls and executes the variouse HTML files located in the Templates folder
