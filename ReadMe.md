@@ -41,7 +41,7 @@ We accomplished this via:
   * Because a Rack is an object, the sanitizing function could easily update data of two Racks in each loop instead of just one
   * The hardware is reasonably scalable, to a limit. We believe a maximum of 4 sensors could be coupled with the ESP32 board used
     * However the code could work in paralell with multiple MCU's
-    * Or the code could be modified to work with a board with more GPIO's (and Arduino mega has 50+) and just use the ESP32 board for bluetooth communication
+    * Or the code could be modified to work with a board with more GPIO's (an Arduino mega has 50+) and just use the ESP32 board for bluetooth communication
   
 # Presentation of results:
 * The project can be test driven in either "bluetooth" or "emulator mode.
@@ -64,7 +64,7 @@ We accomplished this via:
 * A bill of materials, including where to potentially acquire components
 
 ## Standards
-* contains files we shared among ourselves to help work together detailingn what modules would hand off what data formats to each other.
+* contains files we shared among ourselves to help work together detailing what modules would hand off what data formats to each other.
 
 ## Video and demo of hardware working
 * Contains historical files and files of the final hardware product working so graders and observers can appreciate the hardware aspect of the project even if they only run in emulation mode
