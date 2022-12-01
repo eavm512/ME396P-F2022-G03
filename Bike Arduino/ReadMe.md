@@ -40,10 +40,10 @@
 
 ## How to initialize and run the Flask application
 * First open FlaskBikeRackDisplay.py
-* The cloned repository should be structured in the formate that there is a templates folder that contains the HTML files for the pages that flask will reference
-* Once the Flask is opened and running a URL in the console will appear and entering that into a browser to access the flask web application
+* The cloned repository should be structured in the format that there is a templates folder that contains the HTML files for the pages that flask will reference
+* Once the Flask is opened and running a URL in the console will appear. Enter that into a browser to access the flask web application
 
-# Contents
+# Directory Contents
 
 ### BT_with_info_string_ESP32
 * is not strictly necessary to run the files, but contains the final code the ESP32 runs to communicate over bluetooth and sense bikes
