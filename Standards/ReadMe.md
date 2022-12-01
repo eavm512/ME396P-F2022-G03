@@ -4,6 +4,8 @@ This directory contains group information on how we want to go about the project
 - information on the contents of the Rack class, including an example log and example valid racks
 - makes the note that True is "full" (there's a bike in the bay) and False is an open available bay
 
+The Rack class initially logged a timestamp along with every change to the rack (not the entire rack) when an update was passed. This was revised such that a log like the one in [placeholder](/Standards/rack-class/)
+
 # brainstorm data structure
 - meeting images from our first large brainstorm on how to structure the project
 
